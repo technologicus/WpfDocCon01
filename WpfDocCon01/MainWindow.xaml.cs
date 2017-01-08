@@ -67,7 +67,7 @@ namespace WpfDocCon01
 
                 dc_bc.field01 = dc_bc.field01.Replace("/", string.Empty);
 
-                if (dc_bc.field01.Length > 3) if (dc_bc.field01.Substring(dc_bc.field01.Length - 3, 3) == "_XX") dc_bc.field01 = dc_bc.field01.Substring(0, dc_bc.field01.Length - 3);
+                if (dc_bc.field01.Length > 3) if (dc_bc.field01.Substring(dc_bc.field01.Length - 3, 3).ToUpper() == "_XX") dc_bc.field01 = dc_bc.field01.Substring(0, dc_bc.field01.Length - 3);
 
                 dc_rework_file = dc_getfilename(@"C:\Profiles\Alan\Programming\C# 6.0 and the .NET 4.6 Framework, Seventh Edition\DocumentControl\DocCtlRewks", dc_bc.field00 + "-" + dc_bc.field01);
 
@@ -136,7 +136,7 @@ namespace WpfDocCon01
                                 //// Display each file;
                                 //Console.WriteLine("FullName {0}\t\t{1}", fi.FullName, fi.Length.ToString("N0"));
                                 //Console.WriteLine("Name {0}\t\t{1}", fi.Name, fi.Length.ToString("N0"));
-                                if (System.IO.Path.GetFileNameWithoutExtension(fi.FullName) == dc_file)
+                                if (System.IO.Path.GetFileNameWithoutExtension(fi.FullName).ToUpper() == dc_file.ToUpper())
                                 {
                                     dc_fullfilename = fi.FullName;
                                 }
